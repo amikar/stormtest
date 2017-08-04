@@ -123,7 +123,7 @@ public class stormtest {
 				
 		        src.setTags(finaltagmap);
 		      // src.timestamp = Long.parseLong(names.get(1));
-		        // /Users/amikar/downloads/stormdata.txt
+		        // 
 		       
 		    }
 			System.out.println(src);
