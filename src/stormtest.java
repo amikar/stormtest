@@ -119,14 +119,14 @@ public class stormtest {
 			    finaltagmap.put(finaltags[0], finaltags[1]);
 			    
 				
-				System.out.println(finaltagmap);
+				//System.out.println(finaltagmap);
 				
 		        src.setTags(finaltagmap);
 		      // src.timestamp = Long.parseLong(names.get(1));
-		        // 
+		        // /Users/amikar/downloads/stormdata.txt
 		       
 		    }
-			System.out.println(src);
+			//System.out.println(src);
 
 			    
 			    if(jsonforproperty.has("debug") && jsonforproperty.getString("debug").equals("true"))
@@ -144,8 +144,7 @@ public class stormtest {
 		        byte[] bytes = msgpack.write(src);
 		        
 		        
-			        MyMessage dst = msgpack.read(bytes, MyMessage.class);
-System.out.println(dst);				
+			       
 			    DatagramPacket dgPacket = new DatagramPacket(bytes, bytes.length,inAddr, myServerPort);
 						
 						
