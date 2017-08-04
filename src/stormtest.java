@@ -98,22 +98,34 @@ public class stormtest {
 		       src.setValue(Double.parseDouble(names.get(2)));
 		      
 		       String tagvalue[] = names.get(3).split("[^a-zA-Z1-9]+");
-
+		       
+		       
+		       
+		       
 		       List<Object> taglist = new ArrayList<>();
 		       taglist.add(tagvalue[1]);
 		       taglist.add(tagvalue[2]);
-			    Map<String, String> tags = new HashMap<String, String>();
+		       
+		       
 			    
 			    String tagstring = taglist.toString().replaceAll("\\[|\\]", "");
-
-				tags.put((tagvalue[0]),tagstring);
+			    
+			    String finaltags[] = tagstring.split(", ");
+			    
+			    Map<String, String> finaltagmap = new HashMap<String, String>();
+			    
+			    finaltagmap.put("tag1", finaltags[0]);
+			    finaltagmap.put("tag2", finaltags[1]);
+			    
 				
+				System.out.println(finaltagmap);
 				
-		        src.setTags(tags);
+		        src.setTags(finaltagmap);
 		      // src.timestamp = Long.parseLong(names.get(1));
-		       
+		        // /Users/amikar/downloads/stormdata.txt
 		       
 		    }
+			System.out.println(src);
 
 			    
 			    if(jsonforproperty.has("debug") && jsonforproperty.getString("debug").equals("true"))
@@ -131,8 +143,8 @@ public class stormtest {
 		        byte[] bytes = msgpack.write(src);
 		        
 		        
-
-				
+			        MyMessage dst = msgpack.read(bytes, MyMessage.class);
+System.out.println(dst);				
 			    DatagramPacket dgPacket = new DatagramPacket(bytes, bytes.length,inAddr, myServerPort);
 						
 						

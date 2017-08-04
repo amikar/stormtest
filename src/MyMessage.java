@@ -72,7 +72,7 @@ public class MyMessage implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Name:" + name + ",timestamp:" + timestamp+ ",value:" + value ;
+		return "name:" + name + ",timestamp:" + timestamp+ ",value:" + value + ",tags:" + tags ;
 	}
 
 }
