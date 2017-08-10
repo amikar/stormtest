@@ -57,8 +57,20 @@ for (int i = 0; i < stringArr.length; i++)
 String name = stringArr[i];
 			    names =  (Arrays.asList(name.split(" ")));
 		       src.setName(names.get(0));
+		       
+if(jsonforproperty.has("timestamp") && jsonforproperty.getString("timestamp").equals("data"))
+	{		      
 		       src.setTimestamp(Long.parseLong(names.get(1)));
-		       src.setValue(Double.parseDouble(names.get(2)));
+	}
+else if(jsonforproperty.has("timestamp") && jsonforproperty.getString("timestamp").equals("current"))
+{
+    src.setTimestamp(new Date().getTime());
+}
+else{
+	src.setTimestamp(Long.parseLong(names.get(1)));
+}
+	
+	src.setValue(Double.parseDouble(names.get(2)));
 
  tags =(Arrays.asList(name.replaceAll("^[^{]*|[^}]*$", "").split("(?<=\\})[^{]*")));
  
